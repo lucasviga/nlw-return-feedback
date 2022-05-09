@@ -6,9 +6,9 @@ import { SubmitFeedbackUseCase } from "./use-cases/submit-feedback-use-case";
 export const routes = Router();
 
 routes.post('/feedbacks', async (req, res) => {
-  try {
-    const { type, comment, screenshot } = req.body
+  const { type, comment, screenshot } = req.body;
 
+  try {
     const prismaFeedbacksRepository = new PrismaFeedbacksRepository();
     const nodemailerMailAdapter = new NodemailerMailAdapter();
 
